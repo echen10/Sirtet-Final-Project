@@ -55,8 +55,9 @@ class Button {
     //if mouseOver conditional
     
     void mouseOver(){
-    if (mouseX>xpos&&mouseY>ypos&&mouseX<xpos+wid&&mouseY<ypos+hei
-    //include region of button) {    
+    if (mouseX>xpos&&mouseY>ypos&&mouseX<xpos+wid&&mouseY<ypos+hei)
+    //include region of button) 
+    {    
       over=true;
     } else { 
       over=false;
@@ -69,8 +70,9 @@ class Button {
     //if mouseDown conditional
     
     void mouseDown(){
-    if(mouseX>xpos && mouseY>ypos && mouseX<xpos+wid && mouseY<ypos+hei
-    //include region of button){
+    if(mouseX>xpos && mouseY>ypos && mouseX<xpos+wid && mouseY<ypos+hei)
+    //include region of button)
+    {
       over=true;
       if(mousePressed){
         down=true;
