@@ -1,14 +1,18 @@
 abstract class Piece {
-    String name;
-    int[][] coords;
-    int orientation;
+    private int[][] coords;
+    private int orientation;
+    private boolean moving;
     
-    abstract void rotate(int direction);
+    abstract void rotate( int direction );
+
+    public int[][] getCoords() {
+	return coords;
+    }
 
     public void move(int dx, int dy) {
 	for ( int i = 0; i < coords.length; i++ ) {
-	    coord[i][0] = coord[i][0] + dx;
-	    coord[i][0] = coord[i][1] + dy;
+	    coords[i][0] = coords[i][0] + dx;
+	    coords[i][0] = coords[i][1] + dy;
 	}
     }
 
