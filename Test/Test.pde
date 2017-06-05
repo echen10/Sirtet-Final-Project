@@ -1,4 +1,4 @@
-
+/*
 
   
  //Widgets
@@ -28,23 +28,6 @@ void draw(){
   drawPiece();
 }
 
-public int[] rearrange(){
-  Piece p = new LPiece(mode);
-  //Why does this not work??? If it has to be static then it defeats the whole purpose
-  //int[][] coords = getCoords();
-  
-  int [] temp = new int[8];
-  int slot = 0;
-  for (int i = 0; i < 4; i++){
-    for (int j = 0; j <2; j++){
-      temp[slot] = coords[i][j];
-      slot++;
-      System.out.println(temp[slot]);
-}
-  }
-  return temp;
-}
-
 void drawPiece(){
   
   //LPiece p = new LPiece(0);
@@ -53,12 +36,7 @@ void drawPiece(){
   //each block goes by interval of 35
 //why can't I put this in a loop?
   rect(startX, startY, sideL, sideL, curve);
-  rect(startX, startY, sideL, sideL, curve);
-  rect(startX, startY, sideL, sideL, curve);
-  rect(startX, startY, sideL, sideL, curve);
- 
 }
-
   
 
 
@@ -78,3 +56,4 @@ for (int i = 0; i < height; i+=grid) {
 
 //----------------------------------------------------------------------------
 }
+*/

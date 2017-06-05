@@ -4,6 +4,7 @@ abstract class Piece {
   private int[][] coords;
   private int orientation;
   private boolean moving;
+    
 
   abstract void rotate( int direction );
 

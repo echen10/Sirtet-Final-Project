@@ -3,7 +3,7 @@ class Button {
   //button appearance
   int xpos, ypos, wid, hei;
   String label;
-  
+
   //button function
   boolean over = false;
   boolean down = false;
@@ -40,52 +40,45 @@ class Button {
 
   //mouse states
   void seeMouse() {
-    if (over && down == true){
+    if (over && down == true) {
       //do something
-    }
-    else if (over == true){
+    } else if (over == true) {
       //do somthing
-    }
-    else{
+    } else {
       //continue w/o change
     }
   }
 
-    //-----------------------------------------------------------------
-    //if mouseOver conditional
-    
-    void mouseOver(){
+  //-----------------------------------------------------------------
+  //if mouseOver conditional
+
+  void mouseOver() {
     if (mouseX>xpos&&mouseY>ypos&&mouseX<xpos+wid&&mouseY<ypos+hei)
-    //include region of button) 
+      //include region of button) 
     {    
       over=true;
     } else { 
       over=false;
+    }
+  }
+  //-----------------------------------------------------------------
 
-    }
-    }
-    //-----------------------------------------------------------------
-    
-    //-----------------------------------------------------------------
-    //if mouseDown conditional
-    
-    void mouseDown(){
-    if(mouseX>xpos && mouseY>ypos && mouseX<xpos+wid && mouseY<ypos+hei)
-    //include region of button)
+  //-----------------------------------------------------------------
+  //if mouseDown conditional
+
+  void mouseDown() {
+    if (mouseX>xpos && mouseY>ypos && mouseX<xpos+wid && mouseY<ypos+hei)
+      //include region of button)
     {
       over=true;
-      if(mousePressed){
+      if (mousePressed) {
         down=true;
-      }else{
+      } else {
         down=false;
       }
-    }else{
+    } else {
       over=false;
     }
-    }
-    //-----------------------------------------------------------------
-  
-  
-  
-  
+  }
+  //-----------------------------------------------------------------
 }
