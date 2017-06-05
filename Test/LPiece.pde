@@ -1,4 +1,4 @@
-class LPiece extends Piece {
+class LPiece{
   int[][] coords;
   int orientation;
   boolean moving;
@@ -36,5 +36,6 @@ class LPiece extends Piece {
   public int[][] getCoords() {
     return coords;
   }
+  
 
 }

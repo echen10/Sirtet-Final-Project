@@ -1,4 +1,4 @@
-public class Board {
+class Board {
   int [][] board;
   int row, col;
   int xpos, ypos;
