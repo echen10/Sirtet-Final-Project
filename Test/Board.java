@@ -11,7 +11,16 @@ public class Board {
     this.row = row;
     this.col = col;
   }
-
+  
+  public int[][] getBoard(){
+    return board;
+  }
+/*  
+  public void drawPiece(){
+    for (int i = 4; i < squares; i++){
+      rect(
+  }
+/*
   public void putOnBoard(int[][], boolean pieceFall) {
     //----------Movement--------------------
     if (pieceFall == true) {
@@ -21,12 +30,14 @@ public class Board {
     }
   }
   
-}
+
 
 
 
 public void moveOnBoard(boolean rotate) {
 }
+
+*/
 
 
 }
