@@ -40,7 +40,7 @@ public class LPiece extends Piece {
     public int[][] getCoords() {
 	return coords;
     }
-
+    /*
     public static void main( String[] args ) {
 	LPiece l = new LPiece(0);
 	int[][] c = l.getCoords();
@@ -53,4 +53,5 @@ public class LPiece extends Piece {
 	}
 	System.out.println(ans);
     }
+    */
 }
