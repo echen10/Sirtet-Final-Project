@@ -4,13 +4,17 @@ import java.util.Random;
 //Widgets
 Button start;
 
-LPiece current;
+Piece current;
 int[][] coords;
 int h;//height
 
 int startX, startY;
 int sideL, curve;
 int mode;
+
+boolean placed;
+
+int xcor, ycor;
 
 boolean base;
 
@@ -24,8 +28,11 @@ void setup() {
   sideL = 35;
   curve = 7;
   mode = 0;
-  base = false;
+  placed = false;
   determinePiece();
+  frameRate(10);
+  xcor = startX;
+  ycor = startY;
 }
 
 void draw() {
@@ -55,8 +62,9 @@ public int[] rearrange(){
  */
 
 void determinePiece() {
-  int mode = (int)(3 * Math.random());
-  current = new LPiece (mode);
+  int mode = (int)(7 * Math.random());
+  System.out.println(mode);
+  current = new Piece (mode);
   this.coords = current.getCoords();
   
 }
@@ -67,6 +75,11 @@ void placePiece() {
   int x = coords[i][0] * 35 + startX;
     int y = coords[i][1] * 35 + startY;
     rect(x, y, sideL, sideL, curve);
+    placed = true;
+}
+
+void movePiece(){
+  
 }
 
   
