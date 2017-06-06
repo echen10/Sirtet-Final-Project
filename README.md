@@ -1,6 +1,6 @@
 # Sirtet-Final-Project
 
-<b>CHANGELOG</b>
+<b>CHANGELOG</b> <br>
 5-30-17
   <br> Jenny: Set up the general format of the board on processing
   <br> Evan: Added abstract piece class which will be extended by individual pieces which will have 4 modes for orientation
