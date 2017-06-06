@@ -12,6 +12,8 @@ int startX, startY;
 int sideL, curve;
 int mode;
 
+boolean base;
+
 void setup() {
   surface.setSize(800, 800);
   createGrid();
@@ -22,6 +24,8 @@ void setup() {
   sideL = 35;
   curve = 7;
   mode = 0;
+  base = false;
+  determinePiece();
 }
 
 void draw() {
@@ -29,7 +33,7 @@ void draw() {
   start.update();
   frame.setLocation((displayWidth / 2), (displayHeight / 2));
   //Game.go();
-  drawPiece();
+  placePiece();
 }
 /*
 public int[] rearrange(){
@@ -54,19 +58,34 @@ void determinePiece() {
   int mode = (int)(3 * Math.random());
   current = new LPiece (mode);
   this.coords = current.getCoords();
+  
 }
+
+void placePiece() {
+
+  int i = (int)(4 * Math.random());
+  int x = coords[i][0] * 35 + startX;
+    int y = coords[i][1] * 35 + startY;
+    rect(x, y, sideL, sideL, curve);
+}
+
   
+/*  
+void rotatePiece() {
   
-void drawPiece() {
-  
-  determinePiece();
+  //determinePiece();
   System.out.println(mode);
-  for (int i = 0; i < 4; i++) {
+ // for (int i = 0; i < 4; i++) {
+    System.out.println(coords[i][0]);
+    System.out.println(coords[i][1]);
+
     int x = coords[i][0] * 35 + startX;
     int y = coords[i][1] * 35 + startY;
     rect(x, y, sideL, sideL, curve);
-  }
 }
+*/
+
+
 
 
 
