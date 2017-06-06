@@ -3,7 +3,7 @@ public class Piece {
     private int orientation;
     private boolean moving;
     
-    public LPiece( int type ) {
+    public Piece( int type ) {
         orientation = type;
 	coords = new int[4][];
 	if ( type == 0 ) { // LPiece
