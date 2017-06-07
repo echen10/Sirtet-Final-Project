@@ -4,7 +4,7 @@
 Basic game of tetris with a few twists.
 
 <b>FEATURES</b> <br>
-Game Modes:
+Game Modes: Normal,
 
 <b>CHANGELOG</b> <br>
 5-30-17
@@ -14,3 +14,10 @@ Game Modes:
 6-6-17
   <br> Jenny: Pieces can be displayed on board
   <br> Evan: Changed format of the piece class; No longer an abstract class as it contains all the piece types.
+  
+6-7-17
+  <br> Jenny: 
+  <br> Evan: 
+  
+<b>BUGS / ISSUES</b>
+- Coords/Info for pieces need to feed into the Board class to be processed; At the moment, Game directly draws the pieces
