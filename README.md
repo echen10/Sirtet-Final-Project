@@ -1,5 +1,11 @@
 # Sirtet-Final-Project
 
+<b>DESCRIPTION</b> <br>
+Basic game of tetris with a few twists.
+
+<b>FEATURES</b> <br>
+Game Modes:
+
 <b>CHANGELOG</b> <br>
 5-30-17
   <br> Jenny: Set up the general format of the board on processing
