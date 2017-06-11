@@ -3,7 +3,7 @@ import java.util.Random;
 
 //Widgets
 Button start;
-
+Board grid;
 Piece current;
 int[][] coords;
 int h;//height
@@ -20,7 +20,8 @@ boolean base;
 
 void setup() {
   surface.setSize(800, 800);
-  createGrid();
+  createGrid(35);
+  grid = new Board();
   start = new Button(650, 600, 125, 100, "Start");
   //xcor, ycor, height, width, label
   startX = 210;
@@ -36,11 +37,12 @@ void setup() {
 }
 
 void draw() {
-  createGrid();
+  createGrid(35);
   start.update();
   frame.setLocation((displayWidth / 2), (displayHeight / 2));
   //Game.go();
-  placePiece();
+  addPiece();
+  //movePiece();
 }
 /*
 public int[] rearrange(){
@@ -62,41 +64,49 @@ public int[] rearrange(){
  */
 
 void determinePiece() {
-  int mode = (int)(7 * Math.random());
+  int mode = (int)(Math.random() * 7);
   System.out.println(mode);
   current = new Piece (mode);
   this.coords = current.getCoords();
-  
 }
 
-void placePiece() {
+void addPiece() {
 
-  int i = (int)(4 * Math.random());
+  int i = (int)(Math.random() * 4);
   int x = coords[i][0] * 35 + startX;
-    int y = coords[i][1] * 35 + startY;
-    rect(x, y, sideL, sideL, curve);
-    placed = true;
+  int y = coords[i][1] * 35 + startY;
+  rect(x, y, sideL, sideL, curve);
+  placed = true;
 }
 
-void movePiece(){
-  
+void movePiece() {
+  boolean hasMoreRoom = true;
+  int[][] coor = current.getCoords();
+  for ( int i = 0; i < coor.length; i++ ) {
+    if ( coor[i][1] == 0) {
+      hasMoreRoom = false;
+    }
+  }
+  while ( hasMoreRoom ) {
+    current.move(0,1);
+  }
 }
 
-  
+
 /*  
-void rotatePiece() {
-  
-  //determinePiece();
-  System.out.println(mode);
+ void rotatePiece() {
+ 
+ //determinePiece();
+ System.out.println(mode);
  // for (int i = 0; i < 4; i++) {
-    System.out.println(coords[i][0]);
-    System.out.println(coords[i][1]);
-
-    int x = coords[i][0] * 35 + startX;
-    int y = coords[i][1] * 35 + startY;
-    rect(x, y, sideL, sideL, curve);
-}
-*/
+ System.out.println(coords[i][0]);
+ System.out.println(coords[i][1]);
+ 
+ int x = coords[i][0] * 35 + startX;
+ int y = coords[i][1] * 35 + startY;
+ rect(x, y, sideL, sideL, curve);
+ }
+ */
 
 
 
@@ -105,9 +115,9 @@ void rotatePiece() {
 
 //Creating grid
 //---------------------------------------------------------------------------
-void createGrid() {
+void createGrid( int size ) {
 
-  int grid = 35; // change this number to 20 or 50, etc., if you want fewer grid lines
+  int grid = size  ; // change this number to 20 or 50, etc., if you want fewer grid lines
 
 
   for (int i = 0; i < (.75* width); i+=grid) {
