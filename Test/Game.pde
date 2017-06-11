@@ -70,6 +70,7 @@ void determinePiece() {
   this.coords = current.getCoords();
 }
 
+//Why is a rectangle placed there. Is that Piece pivot?
 void addPiece() {
 
   int i = (int)(Math.random() * 4);
@@ -108,6 +109,26 @@ void movePiece() {
  }
  */
 
+/*
+//Timer format to review
+int startAtProgramBegin;
+int startAtSolved=0;
+
+void setup() {
+  startAtProgramBegin = millis();
+}
+
+void draw() {
+
+  if (keyPressed&&startAtSolved==0) {
+    startAtSolved = millis();
+    println("You solved it in "
+      + ((startAtSolved - startAtProgramBegin) / 1000.0)
+      + " seconds. Congratulations!" );
+  }
+
+}
+*/
 
 
 
