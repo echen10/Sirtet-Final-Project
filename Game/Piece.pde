@@ -109,12 +109,12 @@ class Piece {
     for ( int i = 0; i < c.length; i++ ) {
       for ( int j = 0; j < c[0].length; j++ ) {
         if ( c[i][j] != 0 ) {
-          if ( i + dx >= Game.HEIGHT ) {
-            return false;
-          }
-          if ( j + dy < 0 || j + dy >= Game.WIDTH ) {
-            return false;
-          }
+          //if ( i + dx >= Game.HEIGHT ) {
+          //  return false;
+          //}
+          //if ( j + dy < 0 || j + dy >= Game.WIDTH ) {
+          //  return false;
+          //}
         }
       }
     }

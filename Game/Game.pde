@@ -1,85 +1,64 @@
 import processing.pdf.*;
 import java.util.Random;
 
-//Widgets
-Button start;
+//Instance variables
+public static final int BOARD_HEIGHT = 20;
+public static final int BOARD_WIDTH = 10;
+public static final int SCALE = 41;
+
+Piece current; //current moving Piece
+int[][] coords; //Piece relative Position
+int sideL, curve; //dimension and curve of squares
+int xcor, ycor; //current position of Piece
 Board grid;
-Piece current;
-int[][] coords;
-int h;//height
-
+Button startButton;
 int startX, startY;
-int sideL, curve;
-int mode;
-
-int xcor, ycor;
-
-boolean base;
 
 void setup() {
-  surface.setSize(800, 800);
-  createGrid(35);
+  surface.setSize( 800, 800 );
+  createGrid();
   grid = new Board();
-  start = new Button(650, 600, 125, 100, "Start");
+  startButton = new Button( width * 3/4, 600, 125, 100, "Start" );
   //xcor, ycor, height, width, label
-  startX = 210;
+  startX = 200;
   startY = 0;
-  sideL = 35;
+  sideL = 38;  //This number should be relative to size of squares
   curve = 7;
-  mode = 0;
   frameRate(10);
   xcor = startX;
   ycor = startY;
+  determinePiece();
 }
 
 void draw() {
-  createGrid(35);
-  start.update();
+  createGrid();
+  startButton.update();
   frame.setLocation((displayWidth / 2), (displayHeight / 2));
+  addPiece();
 }
 
-//void determinePiece() {
-//  int mode = (int)(Math.random() * 7);
-//  System.out.println(mode);
-//  current = new Piece (mode);
-//  this.coords = current.getCoords();
-//}
+void determinePiece() {
+  int mode = (int)(Math.random() * 7);
+  System.out.println(mode);
+  current = new Piece(mode);
+  this.coords = current.getCoords();
+}
 
-//void addPiece() {
+void addPiece() {
+  int i = (int)(Math.random() * 4);
+  int x = coords[i][0] * SCALE + startX;  //These numbers have to be fixed
+  int y = coords[i][1] * SCALE + startY;
+  rect(x, y, sideL, sideL, curve);
+}
 
-//  int i = (int)(Math.random() * 4);
-//  int x = coords[i][0] * 35 + startX;
-//  int y = coords[i][1] * 35 + startY;
-//  rect(x, y, sideL, sideL, curve);
-//  placed = true;
-//}
+void createGrid() {
+  float w = width / 2;
+  float space = w / BOARD_WIDTH;
 
-//void movePiece() {
-//  boolean hasMoreRoom = true;
-//  int[][] coor = current.getCoords();
-//  for ( int i = 0; i < coor.length; i++ ) {
-//    if ( coor[i][1] == 0) {
-//      hasMoreRoom = false;
-//    }
-//  }
-//  while ( hasMoreRoom ) {
-//    current.move(0,1);
-//  }
-//}
-
-//Creating grid
-//---------------------------------------------------------------------------
-void createGrid( int size ) {
-
-  int grid = size  ; // change this number to 20 or 50, etc., if you want fewer grid lines
-
-
-  for (int i = 0; i < (.75* width); i+=grid) {
+  for ( int i = 0; i <= w; i += space ) {
     line (i, 0, i, height);
   }
-  for (int i = 0; i < height; i+=grid) {
-    line (0, i, (.75*width), i);
+  for ( int i = 0; i <= height; i+= space ) {
+    line (0, i, w, i);
   }
 }
-
-//----------------------------------------------------------------------------

@@ -6,9 +6,9 @@ class Board {
   int xpos, ypos;
 
   public Board() {
-    board = new int[17][17];
-    row = 17;
-    col = 17;
+    board = new int[20][10];
+    row = 20;
+    col = 10;
   }
 
   public Board(int row, int col) {
