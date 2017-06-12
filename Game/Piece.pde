@@ -88,9 +88,15 @@ class Piece {
     return ans;
   }
 
-  public void rotate( int direction ) {
+  public void rotate( boolean clockwise ) {
     int[][] a = this.getCoords();
-    int[][] m = { { 0, 0, 1 }, { 0, 1, 0 }, { 1, 0, 0 } };
+    int[][] m = { {0, 0, 1}, {0, 1, 0}, {1, 0, 0} };
+    
+    if ( clockwise ) {
+      this.coords = multiplyMatrix( transpose( a ), m );
+    } else {
+      this.coords = multiplyMatrix( m, transpose( a ) );
+    }
   }
 
   public boolean hasMoreRoom( Board b ) {

@@ -22,6 +22,16 @@ public class test {
 	return ans;
     }
 
+    public static int[][] rotate( int[][] a, boolean clockwise ) {
+	int[][] m = { {0, 0, 1}, {0, 1, 0}, {1, 0, 0} };
+	if ( clockwise ) {
+	    return multiplyMatrix( transpose( a ), m );
+	}
+	else {
+	    return multiplyMatrix( m, transpose( a ) );
+	}
+    }
+
     public static String printArray( int[][] ary ) {
 	String ans = "";
 	for( int i = 0; i < ary.length; i++ ) {
@@ -37,12 +47,26 @@ public class test {
     
     public static void main( String[] args ) {
 
-	int a1[][] = { {1, 1, 1}, {0, 0, 1}, {0, 0, 0} };
-	int aT[][] = transpose( a1 );
-	int m[][] = { {0, 0, 1}, {0, 1, 0}, {1, 0, 0} };
-	int a3[][] = multiplyMatrix( aT, m );
+	int a1[][] = { {1, 2, 3}, {0, 0, 4}, {0, 0, 0} };
+	int a2[][] = rotate( a1, true );
+	int a3[][] = rotate( a2, true );
+	int a4[][] = rotate( a3, true );
 
+	System.out.println("Clockwise:");
 	System.out.println( printArray(a1) );
-	System.out.println( printArray( a3 ) );
+	System.out.println( printArray(a2) );
+	System.out.println( printArray(a3) );
+	System.out.println( printArray(a4) );
+
+        a2 = rotate( a1, false );
+        a3 = rotate( a2, false );
+        a4 = rotate( a3, false );
+
+	System.out.println("Counter-clockwise:");
+	System.out.println( printArray(a1) );
+	System.out.println( printArray(a2) );
+	System.out.println( printArray(a3) );
+	System.out.println( printArray(a4) );
+	
     }
 }
