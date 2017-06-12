@@ -25,7 +25,7 @@ class Button {
 
 
   void update() {
-    physical();
+    System.out.println("update");
     pressed(xpos, ypos, wid, hei);
   }
 

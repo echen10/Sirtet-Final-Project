@@ -9,6 +9,7 @@ void setup(){
   createGrid(35);
   grid = new Board();
   start = new Button(650, 600, 125, 100, "Start");
+  start.physical();
   
   sirtet =  new Game(210, 0, 35, 7, 0);
   frameRate(10);
@@ -40,7 +41,3 @@ void createGrid( int size ) {
     line (0, i, (.75*width), i);
   }
 }
-
-/*
-
-*/
