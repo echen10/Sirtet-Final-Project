@@ -28,6 +28,8 @@ void draw() {
     }
   }
 
+//the class that uses the Button should be Window which would call Game.go()
+//Will transfer to separate class later
   //Button
   if ( rectOver ) {
     fill(#BFCCF0);
