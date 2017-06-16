@@ -14,6 +14,7 @@ boolean rectOver = false;
 
 //Piece related information to add
 int pieceColor;
+Piece current;
 
 //Game related information
 boolean gameStarted;
@@ -46,7 +47,7 @@ void display(){
   else {
   
   //filled grid
-  updateBoard();
+  updateGrid();
   }
 }
 
@@ -61,7 +62,7 @@ void neutralGrid() {
 }
 
 //Yippee this is working
-void updateBoard() {
+void updateGrid() {
   for (int i = 0; i < 10; i++) {
     for (int j = 0; j < 20; j++) {
       grid[i][j] = new Tile(i*scale, j*scale, scale-2, pieceColor);
