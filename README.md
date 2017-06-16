@@ -18,6 +18,13 @@ Game Modes: Normal,
 6-7-17
   <br> Jenny: 
   <br> Evan: 
+
+6-13-17
+  <br> Evan: Got button Working
+  <br> Jenny: Created Tile Class as on/on switch for grid
+  
+6-16-17
+  <br> Jenny: Got Coords coordinated with box so that piece is set relative to board. print2D shows that
   
 <b>BUGS / ISSUES</b>
 - Coords/Info for pieces need to feed into the Board class to be processed; At the moment, Game directly draws the pieces
