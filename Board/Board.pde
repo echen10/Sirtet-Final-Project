@@ -1,3 +1,5 @@
+import java.util.Random;
+
 int[][] board;
 Tile[][] grid; //Uses information from board to determine which grid square is filled
 int scale = 35; //Is this the sidelength of every grid square? Tile can use this
@@ -15,6 +17,7 @@ boolean rectOver = false;
 //Piece related information to add
 int pieceColor;
 Piece current;
+boolean placed;
 
 //Game related information
 boolean gameStarted;
@@ -26,7 +29,8 @@ void setup() {
   grid = new Tile[10][20];
   pieceColor = 255; //Will change later when create new Piece Class
   gameStarted = false;
-  
+  placed = false; // when piece is determined and put on grid, then placed = true
+  placePiece();
 }
 
 void draw() {
@@ -36,18 +40,19 @@ void draw() {
   update((int)x, (int)y); //checks if mouse is over the button
   detectPress(); //checks if button is pressed
   display(); //checks if Game started, if so, show filled Grid
-  
-
 }
 
-void display(){
-    if (gameStarted == false){
-  //blue grid
-  neutralGrid();}
-  else {
-  
-  //filled grid
-  updateGrid();
+void display() {
+
+  if (gameStarted == false) {
+    //blue grid
+    neutralGrid();
+    writeText();
+  } else {
+
+    //filled grid
+    updateGrid();
+    writeText();
   }
 }
 
@@ -78,7 +83,7 @@ void detectPress() {
   if ( rectOver ) {
     fill(#BFCCF0);
   } else {
-    fill(bcolor);
+    fill(0, 128, 128);
   }
   stroke(255);
   rect(x, y, w, h);
@@ -90,10 +95,11 @@ void detectPress() {
   }
 }
 
-void writeText(){
-    //text(str, x1, y1, x2, y2)
+void writeText() {
+  //text(str, x1, y1, x2, y2)
   //System.out.println("Start");
-  text("Start", x, y, w, h);
+  text("Start", x+35, y+35, w, h);
+  textSize(35);
 }
 
 void update( int x, int y ) {
@@ -113,4 +119,28 @@ boolean overRect( int x, int y, int width, int height ) {
   } else {
     return false;
   }
+}
+
+int[][] placePiece() {
+  //random.nextInt(max - min + 1) + min
+  Random random = new Random();
+  int pieceType = random.nextInt(7 - 1 + 1) + 1;
+  current  = new Piece (pieceType);
+  print2D(current.readOnToBox());
+return current.readOnToBox();
+  //print2D(current.getCoords());
+}
+
+//printing stuff
+
+void print2D(int[][] arr) {
+      for(int i = 0; i < arr.length; i++)
+    {
+        for(int j = 0; j < arr[i].length; j++)
+        {
+            System.out.print(arr[i][j]);
+            if(j < arr[i].length - 1) System.out.print(" ");
+        }
+        System.out.println();
+    }
 }

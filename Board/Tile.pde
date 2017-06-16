@@ -20,8 +20,7 @@ class Tile {
     if (tileHere == true) { 
       fill(pieceColor);
       rect (x, y, side, side);
-    }
-    else{
+    } else {
       fill(255);
       rect (x, y, side, side);
     }
